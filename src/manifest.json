@@ -1,0 +1,54 @@
+{
+    "manifest_version": 2,
+    "name": "Batoto Chapter Downloader",
+    "version": "1.0",
+    "incognito": "split",
+    "offline_enabled": false,
+    "minimum_chrome_version": "49",
+    "icons": {
+        "16": "images/icon16.png",
+        "22": "images/icon22.png",
+        "32": "images/icon32.png",
+        "48": "images/icon48.png",
+        "64": "images/icon64.png",
+        "80": "images/icon80.png"
+    },
+    "page_action": {
+        "default_icon": {
+            "16": "images/icon16.png",
+            "22": "images/icon22.png",
+            "32": "images/icon32.png",
+            "48": "images/icon48.png",
+            "64": "images/icon64.png",
+            "80": "images/icon80.png"
+        },
+       "default_title": "Chapter download menu",
+       "default_popup": "popup.html"
+    },
+    "commands": {
+        "full": {
+            "description": "Download full chapter"
+        },
+        "from_current": {
+            "description": "Download chapter from current page"
+        },
+        "stop": {
+            "description": "Stop downloading"
+        }
+    },
+    "content_scripts": [
+        {
+            "matches": ["http://bato.to/reader", "https://bato.to/reader"],
+            "js": ["extract-chapter-info.js"],
+            "run_at": "document_end"
+        }
+    ],
+    "background": {
+        "scripts": ["background.js"]
+    },
+    "permissions": [
+        "activeTab",
+        "contentSettings",
+        "downloads"
+    ]
+}

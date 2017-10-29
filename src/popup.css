@@ -1,0 +1,17 @@
+body {
+    min-width: 300px;
+    text-align: center;
+}
+
+#action_list {
+    display: flex;
+    flex-direction: column;
+}
+
+#action_list button {
+    font-size: larger;
+}
+
+#action_list button:not(:last-child) {
+    margin-bottom: 1ex;
+}
